@@ -1,0 +1,37 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/w1nchyy/ui/main/code.lua"))()
+
+local Window = Library.CreateLib("Name", "RJTheme7") -- window
+
+local Tab = Window:NewTab("TabName") -- tab
+
+local Section = Tab:NewSection("Section Name") -- section
+
+Section:NewButton("ButtonText", "ButtonInfo", function() -- button
+    print("Clicked")
+end)
+
+Section:NewToggle("ToggleText", "ToggleInfo", function(state) -- toggle button
+    if state then
+        print("Toggle On")
+    else
+        print("Toggle Off")
+    end
+end)
+
+Section:NewSlider("SliderText", "SliderInfo", 500, 0, function(s) -- slider
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F, function() -- bind to button
+	print("You just clicked the bind")
+end)
+
+Section:NewDropdown("DropdownText", "DropdownInf", {"Option 1", "Option 2", "Option 3"}, function(currentOption) -- dropdown
+    print(currentOption)
+end)
+
+Section:NewLabel("LabelText") -- label
+
+Section:NewTextBox("TextboxText", "TextboxInfo", function(txt) -- textbox
+	print(txt)
+end)
